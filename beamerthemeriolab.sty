@@ -19,7 +19,17 @@
   \setbeamercolor{alerted text}{fg=alerttext}
 
   % Frame
-  \setbeamercolor{frametitle}{bg=headerblue, fg=white}
+  \setbeamertemplate{frametitle}
+  {
+	\nointerlineskip
+	\setbeamercolor{frametitlecolor}{bg=headerblue, fg=white}
+    \begin{beamercolorbox}[sep=0.3cm,ht=1.6em,wd=\paperwidth]{frametitlecolor}
+        \strut\insertframetitle\strut
+		\hfill
+		\raisebox{-0.2mm}{\includegraphics[width=1cm]{lablogo-white.png}}
+        \vskip-1.0ex%
+    \end{beamercolorbox}
+  }
 
   % Block
   \addtobeamertemplate{block begin}{%
