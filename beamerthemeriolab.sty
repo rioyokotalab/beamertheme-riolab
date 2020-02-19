@@ -1,0 +1,71 @@
+% Copyright 2020 by enp1s0
+
+\ProvidesPackage{beamerthemeriolab}
+
+\mode<presentation>
+  \usetheme{default}
+
+  \definecolor{headerblue}{HTML}{002855}
+  \definecolor{blockblue}{HTML}{164272}
+  \definecolor{normal}{HTML}{303030}
+  \definecolor{alerttext}{HTML}{ff9d00}
+  \definecolor{backgroundcolor}{HTML}{ffffff}
+
+  % Background
+  \setbeamercolor{background canvas}{bg=backgroundcolor}
+
+  % Text
+  \setbeamercolor{normal text}{bg=white, fg=normal}
+  \setbeamercolor{alerted text}{fg=alerttext}
+
+  % Frame
+  \setbeamercolor{frametitle}{bg=headerblue, fg=white}
+
+  % Block
+  \addtobeamertemplate{block begin}{%
+    \let\oldinsertblocktitle\insertblocktitle%
+    \def\insertblocktitle{\underline{\oldinsertblocktitle}}%
+  }{}
+  \setbeamercolor{block text}{bg=, fg=}
+  \setbeamercolor{block title}{bg=, fg=}
+  \setbeamercolor{block body}{bg=, fg=}
+
+  % Rio block
+  \newenvironment<>{rioblock}[2][\textwidth]{%
+    \setlength{\textwidth}{#1}
+    \begin{actionenv}#3%
+	  \setbeamercolor{block text}{bg=, fg=white}
+	  \setbeamercolor{block title}{bg=blockblue, fg=white}
+	  \setbeamercolor{block body}{bg=blockblue, fg=white}
+	  \setbeamercolor{itemize item}{fg=white}
+	  \setbeamercolor{itemize subitem}{fg=white}
+	  \setbeamercolor{itemize subsubitem}{fg=white}
+	  \setbeamercolor{enumerate item}{fg=white}
+	  \setbeamercolor{enumerate subitem}{fg=white}
+	  \setbeamercolor{enumerate subsubitem}{fg=white}
+      \def\insertblocktitle{\underline{#2}}%
+      \par%
+      \usebeamertemplate{block begin}}
+      {\par%
+      \usebeamertemplate{block end}%
+    \end{actionenv}
+  }
+
+  % Title page
+  \makeatletter
+  \setbeamertemplate{title page}[default][left,colsep=-4bp,rounded=true]
+  \makeatother
+
+
+  \usecolortheme[named=normal]{structure}
+  \usefonttheme{structurebold}
+  \setbeamercovered{transparent}
+
+  \setbeamertemplate{footline}[frame number]
+  \setbeamertemplate{navigation symbols}{}
+
+  \setbeamertemplate{blocks}[default]
+
+  \setbeamersize{text margin left=0.2cm, text margin right=0.2cm}
+\mode
+<all>
